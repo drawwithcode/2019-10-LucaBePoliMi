@@ -115,7 +115,7 @@ function draw() {
 
 
   // enlarging the 3d model
-  scale(3);
+  scale(4);
 
   translate(0, 50, 0);
 
