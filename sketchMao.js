@@ -1,6 +1,7 @@
 // Initializing variables for different colored states
 var state1 = true;
 var state2 = false;
+var zoom = 0;
 
 
 function preload() {
@@ -22,6 +23,8 @@ function setup() {
   // while if I used the mouse x and y directly to generate the background color
   // the lights could shine of just a limited range of rgb values, limit given by the background color
   maoSurface.background(255, 255, 255);
+
+
 }
 
 // principal variables used to map color
@@ -29,6 +32,16 @@ var maxColorValue = 255;
 var minColorValue = 0;
 
 function draw() {
+
+
+
+
+// allows to drag and rotate the object and to zoom on it
+// this is enough for this model, since zooming too much will just make polygons more visible
+orbitControl(1, 1, 0.25);
+
+// this works but it's useless to zoom in too much without
+//camera(0, 0, 600 + zoom, 0, 0, 0, 0, 1, 0);
 
   // Assigning width for mouseY or height for mouseX as values in map() avoids creating grey color
   // because this way the rgb values won't ever be the all same
@@ -115,7 +128,7 @@ function draw() {
 
 
   // enlarging the 3d model
-  scale(4);
+  scale(width*height / 240000);
 
   translate(0, 50, 0);
 
@@ -136,6 +149,7 @@ function draw() {
   // applying the model the white creategraphics as texture
   texture(maoSurface);
 
+console.log(zoom);
 }
 // clicking will swap colors
 function mouseClicked() {
@@ -155,6 +169,14 @@ function mouseClicked() {
 
   }
 
+}
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 
+function mouseWheel(event) {
+  print(event.delta);
+
+  zoom += event.delta;
 }

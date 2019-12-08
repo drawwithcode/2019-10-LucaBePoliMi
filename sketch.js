@@ -51,7 +51,7 @@ function draw() {
   sign.fill(255, 200, 30);
   sign.text("Press M to go to the model", signW / 6, signH / 6);
   sign.pop();
-  sign.text("You will be able to change colors by moving your mouse or to swap them by clicking", signW / 6, signH * 2 / 6, 4 / 6 * signW, 600);
+  sign.text("You will be able to change colors by moving your mouse or to swap them by clicking. You can also click and drag to rotate the model or zoom with your mouse wheel", signW / 6, signH * 2 / 6, 4 / 6 * signW, 600);
   sign.text("Inspired to Mao by Andy Warhol", signW / 6, signH * 5 / 6);
 
   //setting the camera for the instructions cube
@@ -76,4 +76,8 @@ function keyTyped() {
 
   }
 
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
