@@ -128,7 +128,7 @@ orbitControl(1, 1, 0.25);
 
 
   // enlarging the 3d model
-  scale(width*height / 240000);
+  scale(width*height / 360000);
 
   translate(0, 50, 0);
 
